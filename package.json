@@ -1,0 +1,25 @@
+{
+  "name": "phone-number-generator-api",
+  "version": "1.0.0",
+  "description": "An application that helps generate random phone numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "phone-number-generator-api"
+  },
+  "keywords": [
+    "phone",
+    "number",
+    "generator",
+    "api"
+  ],
+  "author": "ApotiEri",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
