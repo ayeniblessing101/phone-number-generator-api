@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import randomize from 'randomatic'; 
 
 const filePath = path.join(__dirname, '../phone-numbers.txt');
 
@@ -16,8 +17,8 @@ exports.getPhoneNumbers = (req, res) => {
 };
 
 exports.createPhoneNumbers = (req, res) => {
-  const phoneNumber = '0' + Math.floor(Math.random() * 1000000000);
-  fs.appendFile(filePath, phoneNumber +'\r\n' , (err, data) => {
+  const phoneNumber = '0' + randomize('0', 9);
+  fs.appendFile(filePath, phoneNumber +',' , (err, data) => {
     if (err) {
       res.writeHead(500, {'Content-Type': 'text/plain'});
     } else {
