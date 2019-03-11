@@ -15,8 +15,11 @@ app.use('/api/v1', phoneNumbersRoute);
 
 const port = process.env.PORT || 8080;
 
-app.listen(port, () => {
-  console.log('Server running on port 8080');
-});
+
+if(!module.parent) {
+  app.listen(port, () => {
+    console.log('Server running on port 8080');
+  });
+}
 
 module.exports = app;

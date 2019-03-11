@@ -22,7 +22,7 @@ exports.createPhoneNumbers = (req, res) => {
     if (err) {
       res.writeHead(500, {'Content-Type': 'text/plain'});
     } else {
-      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.writeHead(201, {'Content-Type': 'text/plain'});
       res.write('Saved', data);
       res.end();
     }
