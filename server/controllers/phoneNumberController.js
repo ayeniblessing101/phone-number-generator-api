@@ -5,26 +5,26 @@ import randomize from 'randomatic';
 const filePath = path.join(__dirname, '../phone-numbers.txt');
 
 exports.getPhoneNumbers = (req, res) => {
-  fs.readFile(filePath, (err, data) => {
-    if(!err) {
-      res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.write(data);
-      res.end();
-    } else {
-      return err;
-    }
-  });
+  const data = fs.readFileSync(filePath, 'utf8');
+  if (data.length > 0) {
+    const phoneNumbers = data.split(',');
+    res.status(200).send({
+      message: 'Phone Number fetched successfully',
+      phoneNumbers,
+    });
+  } else {
+    res.status(200).send({
+      message: 'There are no Phone Numbers yet!'
+    });
+  }
 };
 
 exports.createPhoneNumbers = (req, res) => {
-  const phoneNumber = '0' + randomize('0', 9);
-  fs.appendFile(filePath, phoneNumber +',' , (err, data) => {
-    if (err) {
-      res.writeHead(500, {'Content-Type': 'text/plain'});
-    } else {
-      res.writeHead(201, {'Content-Type': 'text/plain'});
-      res.write('Saved', data);
-      res.end();
-    }
+  let  phoneNumber = '0' + randomize('0', 9);
+  var newLine= ",";
+  fs.appendFileSync(filePath, phoneNumber + newLine, 'utf8');
+
+  res.status(201).send({
+    message: 'Phone Number generated successfully',
   });
 };
