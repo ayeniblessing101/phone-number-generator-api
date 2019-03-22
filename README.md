@@ -12,7 +12,7 @@
   * Users can sort list of Phone Numbers in Ascending Order
   * Users can sort list of Phone Numbers in Descending Order
   * Users can view the maximum number generated and minimum number generated
-* A demo of the app can be accessed on heroku via [here](https://blessing-rng.herokuapp.com)
+* A demo of the app can be accessed on heroku via [here](https://blessing-api-random-number-gen.herokuapp.com)
 
 ## Technology
 This application was developed with JavaScript using, NodeJs, and Express on the backend and Angular6 on the frontend.
